@@ -38,10 +38,11 @@ public class Servlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>Ejemplo HTML desde Java</h1>");
-		out.println("<p>gracias por ingresar</p>");
-		
+		out.println("<p> thaths!");
 		out.println("</body>");
 		out.println("</html>");
+		
+
 		
 		
 		
