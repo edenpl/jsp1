@@ -1,18 +1,21 @@
-package com.hola.curso.servlet;
+package com.ecodeup.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+//import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ecodeup.model.Ecodeup;
+
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/index")
+@WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,24 +31,11 @@ public class Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("bienvenido al serlet");
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title></title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>Ejemplo HTML desde Java</h1>");
-		out.println("<p> thaths!");
-		out.println("</body>");
-		out.println("</html>");
-		
-
-		
-		
-		
+		System.out.println("Java Bean en el servlet");
+		Ecodeup ecodeup = new Ecodeup("Bienvenido a ecodeup, el blog de Java y Java Web","Hola mundo desde JSP",20);
+		RequestDispatcher rd= request.getRequestDispatcher("jbean.jsp");
+		request.setAttribute("ecodeup", ecodeup);
+		rd.forward(request, response);
 	}
 
 	/**
